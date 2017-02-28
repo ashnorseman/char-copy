@@ -1,0 +1,72 @@
+/**
+ * Styles
+ */
+
+@import "~desktop-css-starter";
+
+$size: 1.5rem;
+$char-gap: .5rem;
+
+nav {
+  background: #fff;
+  border: 1px solid;
+  line-height: 2;
+  position: fixed;
+    right: 2rem;
+    top: 0;
+
+  a {
+    border-left: 1px solid;
+    cursor: pointer;
+    float: left;
+    padding: 0 .5em;
+
+    &:first-child {
+      border-left: 0;
+    }
+
+    &:hover {
+      background: #f0f0f0;
+    }
+  }
+}
+
+article {
+  margin: 2rem auto;
+  max-width: 100%;
+  padding: 0 1rem;
+  width: ($size * 1.2 + $char-gap) * 18 + 2rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: 300;
+  margin-top: $char-gap * 2;
+}
+
+h3 {
+  margin-top: $char-gap;
+}
+
+ul {
+  font-size: $size;
+  margin-top: $char-gap;
+  overflow: auto;
+}
+
+li {
+  border: 1px solid;
+  cursor: pointer;
+  float: left;
+  height: 1.2em;
+  margin-right: $char-gap;
+  margin-bottom: $char-gap;
+  line-height: 1.15;
+  text-align: center;
+  transition: all .3s ease-in-out;
+  width: 1.2em;
+
+  &.copy-success {
+    background: #DCEDC8;
+  }
+}
