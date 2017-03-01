@@ -70,3 +70,52 @@ li {
     background: #DCEDC8;
   }
 }
+
+canvas {
+  border: 1px solid;
+  display: block;
+  height: 400px;
+  margin: $char-gap * 2 auto;
+  width: 400px;
+}
+
+.ideographic {
+
+  &:hover {
+    background: #f0f0f0;
+  }
+}
+
+#idc {
+  border: 1px solid;
+  display: inline-block;
+  font-size: 1.5rem;
+  height: 1.2em;
+  margin-right: $char-gap;
+  margin-bottom: $char-gap;
+  line-height: 1.15;
+  text-align: center;
+  vertical-align: middle;
+  width: 1.2em;
+}
+
+input,
+button {
+  border: 1px solid;
+  height: 1.8rem;
+}
+
+input {
+  margin-right: $char-gap;
+  text-align: center;
+  width: 4rem;
+}
+
+button {
+  background: #fff;
+  padding: 0 .5em;
+
+  &:active {
+    background: #f0f0f0;
+  }
+}
