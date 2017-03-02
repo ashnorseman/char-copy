@@ -18,486 +18,52 @@
     </nav>
 
     <article>
-      <h2 id="ideographic">Ideographic Description Characters</h2>
+      <section id="glyph-maker">
+        <h2 id="ideographic">Ideographic Description Characters</h2>
 
-      <ul>
-        <li class="ideographic">⿰</li>
-        <li class="ideographic">⿱</li>
-        <li class="ideographic">⿲</li>
-        <li class="ideographic">⿳</li>
-        <li class="ideographic">⿴</li>
-        <li class="ideographic">⿵</li>
-        <li class="ideographic">⿶</li>
-        <li class="ideographic">⿷</li>
-        <li class="ideographic">⿸</li>
-        <li class="ideographic">⿹</li>
-        <li class="ideographic">⿺</li>
-        <li class="ideographic">⿻</li>
-      </ul>
+        <ul id="ideographic-list">
+          <li v-for="char in idcList"
+              v-on:click="selectIdc(char)"
+              class="ideographic">{{char}}</li>
+        </ul>
 
-      <h2>Create </h2>
+        <h2>Create</h2>
 
-      <h3>Ideographic Description Character: <span id="idc" class="idc"></span></h3>
+        <h3>Ideographic Description Character: <span class="idc">{{idc}}</span></h3>
 
-      <h3>
-        Block 1: <input type="text" id="block-1">
-        Block 2: <input type="text" id="block-2">
-        Block 3: <input type="text" id="block-3">
-        <button type="button" id="draw-button">Draw</button>
-      </h3>
+        <h3>
+          Block 1: <input type="text" v-model="block1">
+          Block 2: <input type="text" v-model="block2">
+          Block 3: <input type="text" v-model="block3">
+          <button type="button" v-on:click="draw">Draw</button>
+        </h3>
 
-      <section>
-        <canvas id="glyph-canvas" height="400" width="400"></canvas>
+        <section>
+          <canvas ref="canvas" height="400" width="400"></canvas>
+        </section>
       </section>
 
       <h2 id="radicals">CJK Radicals</h2>
 
-      <h3>1</h3>
+      <section id="radical-list">
+        <section v-for="item in radicalList">
+          <h3>{{item.strokeCount}}</h3>
 
-      <ul>
-        <li class="glyph" data-stroke-order="1">一</li>
-        <li class="glyph" data-stroke-order="2">丨</li>
-        <li class="glyph" data-stroke-order="2">亅</li>
-        <li class="glyph" data-stroke-order="3">丿</li>
-        <li class="glyph" data-stroke-order="4">丶</li>
-        <li class="glyph" data-stroke-order="5">乛</li>
-        <li class="glyph" data-stroke-order="5">⺄</li>
-        <li class="glyph" data-stroke-order="5">乙</li>
-        <li class="glyph" data-stroke-order="5">乚</li>
-      </ul>
-
-      <h3>2</h3>
-
-      <ul>
-        <li class="glyph" data-stroke-order="11">二</li>
-        <li class="glyph" data-stroke-order="12">十</li>
-        <li class="glyph" data-stroke-order="13">厂</li>
-        <li class="glyph" data-stroke-order="15">匚</li>
-        <li class="glyph" data-stroke-order="15">匸</li>
-        <li class="glyph" data-stroke-order="21">⺊</li>
-        <li class="glyph" data-stroke-order="22">刂</li>
-        <li class="glyph" data-stroke-order="24">卜</li>
-        <li class="glyph" data-stroke-order="25">冂</li>
-        <li class="glyph" data-stroke-order="32">亻</li>
-        <li class="glyph" data-stroke-order="33">⺁</li>
-        <li class="glyph" data-stroke-order="34">人</li>
-        <li class="glyph" data-stroke-order="34">入</li>
-        <li class="glyph" data-stroke-order="34">八</li>
-        <li class="glyph" data-stroke-order="35">儿</li>
-        <li class="glyph" data-stroke-order="35">几</li>
-        <li class="glyph" data-stroke-order="35">⺇</li>
-        <li class="glyph" data-stroke-order="35">⺆</li>
-        <li class="glyph" data-stroke-order="35">勹</li>
-        <li class="glyph" data-stroke-order="35">⺈</li>
-        <li class="glyph" data-stroke-order="35">匕</li>
-        <li class="glyph" data-stroke-order="41">亠</li>
-        <li class="glyph" data-stroke-order="41">冫</li>
-        <li class="glyph" data-stroke-order="44">⺀</li>
-        <li class="glyph" data-stroke-order="45">讠</li>
-        <li class="glyph" data-stroke-order="45">冖</li>
-        <li class="glyph" data-stroke-order="52">卩</li>
-        <li class="glyph" data-stroke-order="52">凵</li>
-        <li class="glyph" data-stroke-order="52">⻖</li>
-        <li class="glyph" data-stroke-order="52">⻏</li>
-        <li class="glyph" data-stroke-order="53">刀</li>
-        <li class="glyph" data-stroke-order="53">力</li>
-        <li class="glyph" data-stroke-order="54">又</li>
-        <li class="glyph" data-stroke-order="54">廴</li>
-        <li class="glyph" data-stroke-order="54">厶</li>
-        <li class="glyph" data-stroke-order="55">⺋</li>
-      </ul>
-
-      <h3>3</h3>
-
-      <ul>
-        <li class="glyph" data-stroke-order="112">干</li>
-        <li class="glyph" data-stroke-order="121">土</li>
-        <li class="glyph" data-stroke-order="121">士</li>
-        <li class="glyph" data-stroke-order="121">工</li>
-        <li class="glyph" data-stroke-order="121">扌</li>
-        <li class="glyph" data-stroke-order="122">艹</li>
-        <li class="glyph" data-stroke-order="124">寸</li>
-        <li class="glyph" data-stroke-order="132">廾</li>
-        <li class="glyph" data-stroke-order="134">大</li>
-        <li class="glyph" data-stroke-order="135">尢</li>
-        <li class="glyph" data-stroke-order="135">兀</li>
-        <li class="glyph" data-stroke-order="154">弋</li>
-        <li class="glyph" data-stroke-order="234">小</li>
-        <li class="glyph" data-stroke-order="243">⺌</li>
-        <li class="glyph" data-stroke-order="251">口</li>
-        <li class="glyph" data-stroke-order="251">囗</li>
-        <li class="glyph" data-stroke-order="252">山</li>
-        <li class="glyph" data-stroke-order="252">巾</li>
-        <li class="glyph" data-stroke-order="332">彳</li>
-        <li class="glyph" data-stroke-order="333">彡</li>
-        <li class="glyph" data-stroke-order="353">犭</li>
-        <li class="glyph" data-stroke-order="354">夕</li>
-        <li class="glyph" data-stroke-order="354">夂</li>
-        <li class="glyph" data-stroke-order="354">夊</li>
-        <li class="glyph" data-stroke-order="355">饣</li>
-        <li class="glyph" data-stroke-order="412">⺦</li>
-        <li class="glyph" data-stroke-order="413">广</li>
-        <li class="glyph" data-stroke-order="425">门</li>
-        <li class="glyph" data-stroke-order="441">氵</li>
-        <li class="glyph" data-stroke-order="442">忄</li>
-        <li class="glyph" data-stroke-order="443">⺍</li>
-        <li class="glyph" data-stroke-order="445">宀</li>
-        <li class="glyph" data-stroke-order="454">辶</li>
-        <li class="glyph" data-stroke-order="454">⻎</li>
-        <li class="glyph" data-stroke-order="511">⼹</li>
-        <li class="glyph" data-stroke-order="511">彐</li>
-        <li class="glyph" data-stroke-order="513">尸</li>
-        <li class="glyph" data-stroke-order="515">己</li>
-        <li class="glyph" data-stroke-order="515">巳</li>
-        <li class="glyph" data-stroke-order="515">弓</li>
-        <li class="glyph" data-stroke-order="522">屮</li>
-        <li class="glyph" data-stroke-order="531">女</li>
-        <li class="glyph" data-stroke-order="534">飞</li>
-        <li class="glyph" data-stroke-order="551">纟</li>
-        <li class="glyph" data-stroke-order="521">子</li>
-        <li class="glyph" data-stroke-order="551">彑</li>
-        <li class="glyph" data-stroke-order="551">马</li>
-        <li class="glyph" data-stroke-order="554">幺</li>
-        <li class="glyph" data-stroke-order="555">巛</li>
-      </ul>
-
-      <h3>4</h3>
-
-      <ul>
-        <li class="glyph" data-stroke-order="1121">⺩</li>
-        <li class="glyph" data-stroke-order="1135">无</li>
-        <li class="glyph" data-stroke-order="1152">韦</li>
-        <li class="glyph" data-stroke-order="1212">⺿</li>
-        <li class="glyph" data-stroke-order="1213">耂</li>
-        <li class="glyph" data-stroke-order="1234">木</li>
-        <li class="glyph" data-stroke-order="1254">支</li>
-        <li class="glyph" data-stroke-order="1344">犬</li>
-        <li class="glyph" data-stroke-order="1354">歹</li>
-        <li class="glyph" data-stroke-order="1512">车</li>
-        <li class="glyph" data-stroke-order="1523">牙</li>
-        <li class="glyph" data-stroke-order="1534">戈</li>
-        <li class="glyph" data-stroke-order="1535">旡</li>
-        <li class="glyph" data-stroke-order="1535">比</li>
-        <li class="glyph" data-stroke-order="1554">瓦</li>
-        <li class="glyph" data-stroke-order="2121">止</li>
-        <li class="glyph" data-stroke-order="2121">⻀</li>
-        <li class="glyph" data-stroke-order="2154">攴</li>
-        <li class="glyph" data-stroke-order="2444">⺗</li>
-        <li class="glyph" data-stroke-order="2511">日</li>
-        <li class="glyph" data-stroke-order="2511">曰</li>
-        <li class="glyph" data-stroke-order="2511">⺜</li>
-        <li class="glyph" data-stroke-order="2511">⺝</li>
-        <li class="glyph" data-stroke-order="2522">𦉫</li>
-        <li class="glyph" data-stroke-order="2534">罓</li>
-        <li class="glyph" data-stroke-order="2534">贝</li>
-        <li class="glyph" data-stroke-order="2534">水</li>
-        <li class="glyph" data-stroke-order="2535">见</li>
-        <li class="glyph" data-stroke-order="2554">禸</li>
-        <li class="glyph" data-stroke-order="3112">牛</li>
-        <li class="glyph" data-stroke-order="3112">手</li>
-        <li class="glyph" data-stroke-order="3115">毛</li>
-        <li class="glyph" data-stroke-order="3115">气</li>
-        <li class="glyph" data-stroke-order="3121">⺧</li>
-        <li class="glyph" data-stroke-order="3134">攵</li>
-        <li class="glyph" data-stroke-order="3154">长</li>
-        <li class="glyph" data-stroke-order="3215">片</li>
-        <li class="glyph" data-stroke-order="3312">斤</li>
-        <li class="glyph" data-stroke-order="3324">爪</li>
-        <li class="glyph" data-stroke-order="3324">⺥</li>
-        <li class="glyph" data-stroke-order="3443">爫</li>
-        <li class="glyph" data-stroke-order="3434">父</li>
-        <li class="glyph" data-stroke-order="3434">爻</li>
-        <li class="glyph" data-stroke-order="3435">尣</li>
-        <li class="glyph" data-stroke-order="3435">⺑</li>
-        <li class="glyph" data-stroke-order="3511">⺼</li>
-        <li class="glyph" data-stroke-order="3511">月</li>
-        <li class="glyph" data-stroke-order="3513">戶</li>
-        <li class="glyph" data-stroke-order="3515">氏</li>
-        <li class="glyph" data-stroke-order="3534">欠</li>
-        <li class="glyph" data-stroke-order="3534">风</li>
-        <li class="glyph" data-stroke-order="3554">殳</li>
-        <li class="glyph" data-stroke-order="4134">文</li>
-        <li class="glyph" data-stroke-order="4153">方</li>
-        <li class="glyph" data-stroke-order="4334">火</li>
-        <li class="glyph" data-stroke-order="4412">斗</li>
-        <li class="glyph" data-stroke-order="4444">灬</li>
-        <li class="glyph" data-stroke-order="4454">⻍</li>
-        <li class="glyph" data-stroke-order="4524">礻</li>
-        <li class="glyph" data-stroke-order="4534">⺳</li>
-        <li class="glyph" data-stroke-order="4535">⺴</li>
-        <li class="glyph" data-stroke-order="4544">心</li>
-        <li class="glyph" data-stroke-order="5112">肀</li>
-        <li class="glyph" data-stroke-order="5213">爿</li>
-        <li class="glyph" data-stroke-order="5531">毋</li>
-      </ul>
-
-      <h3>5</h3>
-
-      <ul>
-        <li class="glyph" data-stroke-order="11214">玉</li>
-        <li class="glyph" data-stroke-order="11234">示</li>
-        <li class="glyph" data-stroke-order="11234">⺬</li>
-        <li class="glyph" data-stroke-order="12211">甘</li>
-        <li class="glyph" data-stroke-order="13251">石</li>
-        <li class="glyph" data-stroke-order="13534">龙</li>
-        <li class="glyph" data-stroke-order="21354">歺</li>
-        <li class="glyph" data-stroke-order="24134">氺</li>
-        <li class="glyph" data-stroke-order="25111">目</li>
-        <li class="glyph" data-stroke-order="25121">田</li>
-        <li class="glyph" data-stroke-order="25221">皿</li>
-        <li class="glyph" data-stroke-order="25221">罒</li>
-        <li class="glyph" data-stroke-order="31115">钅</li>
-        <li class="glyph" data-stroke-order="31121">生</li>
-        <li class="glyph" data-stroke-order="31134">矢</li>
-        <li class="glyph" data-stroke-order="31234">禾</li>
-        <li class="glyph" data-stroke-order="32511">白</li>
-        <li class="glyph" data-stroke-order="33544">瓜</li>
-        <li class="glyph" data-stroke-order="35112">用</li>
-        <li class="glyph" data-stroke-order="35451">鸟</li>
-        <li class="glyph" data-stroke-order="41341">疒</li>
-        <li class="glyph" data-stroke-order="41431">立</li>
-        <li class="glyph" data-stroke-order="41554">玄</li>
-        <li class="glyph" data-stroke-order="44534">穴</li>
-        <li class="glyph" data-stroke-order="45234">衤</li>
-        <li class="glyph" data-stroke-order="51121">⺻</li>
-        <li class="glyph" data-stroke-order="51515">民</li>
-        <li class="glyph" data-stroke-order="52121">⺪</li>
-        <li class="glyph" data-stroke-order="52134">疋</li>
-        <li class="glyph" data-stroke-order="53254">皮</li>
-        <li class="glyph" data-stroke-order="54334">癶</li>
-        <li class="glyph" data-stroke-order="54523">矛</li>
-        <li class="glyph" data-stroke-order="55414">母</li>
-      </ul>
-
-      <h3>6</h3>
-
-      <ul>
-        <li class="glyph" data-stroke-order="111234">耒</li>
-        <li class="glyph" data-stroke-order="121335">老</li>
-        <li class="glyph" data-stroke-order="122111">耳</li>
-        <li class="glyph" data-stroke-order="125125">臣</li>
-        <li class="glyph" data-stroke-order="125221">覀</li>
-        <li class="glyph" data-stroke-order="125221">襾</li>
-        <li class="glyph" data-stroke-order="125351">西</li>
-        <li class="glyph" data-stroke-order="132522">而</li>
-        <li class="glyph" data-stroke-order="132534">页</li>
-        <li class="glyph" data-stroke-order="154121">至</li>
-        <li class="glyph" data-stroke-order="215315">虍</li>
-        <li class="glyph" data-stroke-order="251214">虫</li>
-        <li class="glyph" data-stroke-order="253434">网</li>
-        <li class="glyph" data-stroke-order="253434">肉</li>
-        <li class="glyph" data-stroke-order="314314">⺮</li>
-        <li class="glyph" data-stroke-order="335414">舟</li>
-        <li class="glyph" data-stroke-order="311252">缶</li>
-        <li class="glyph" data-stroke-order="312251">舌</li>
-        <li class="glyph" data-stroke-order="312312">竹</li>
-        <li class="glyph" data-stroke-order="321511">臼</li>
-        <li class="glyph" data-stroke-order="325111">自</li>
-        <li class="glyph" data-stroke-order="325221">血</li>
-        <li class="glyph" data-stroke-order="332112">行</li>
-        <li class="glyph" data-stroke-order="354152">舛</li>
-        <li class="glyph" data-stroke-order="355215">色</li>
-        <li class="glyph" data-stroke-order="413432">齐</li>
-        <li class="glyph" data-stroke-order="413534">衣</li>
-        <li class="glyph" data-stroke-order="431112">羊</li>
-        <li class="glyph" data-stroke-order="431113">⺶</li>
-        <li class="glyph" data-stroke-order="431121">⺷</li>
-        <li class="glyph" data-stroke-order="431234">米</li>
-        <li class="glyph" data-stroke-order="511112">聿</li>
-        <li class="glyph" data-stroke-order="511534">艮</li>
-        <li class="glyph" data-stroke-order="523522">艸</li>
-        <li class="glyph" data-stroke-order="541541">羽</li>
-        <li class="glyph" data-stroke-order="554234">糸</li>
-        <li class="glyph" data-stroke-order="554444">糹</li>
-      </ul>
-
-      <h3>7</h3>
-
-      <ul>
-        <li class="glyph" data-stroke-order="1121354">麦</li>
-        <li class="glyph" data-stroke-order="1211154">镸</li>
-        <li class="glyph" data-stroke-order="1212134">走</li>
-        <li class="glyph" data-stroke-order="1213234">赤</li>
-        <li class="glyph" data-stroke-order="1251112">車</li>
-        <li class="glyph" data-stroke-order="1251431">豆</li>
-        <li class="glyph" data-stroke-order="1253511">酉</li>
-        <li class="glyph" data-stroke-order="1311534">辰</li>
-        <li class="glyph" data-stroke-order="1353334">豕</li>
-        <li class="glyph" data-stroke-order="2121112">⺸</li>
-        <li class="glyph" data-stroke-order="2125341">卤</li>
-        <li class="glyph" data-stroke-order="2511134">貝</li>
-        <li class="glyph" data-stroke-order="2511135">見</li>
-        <li class="glyph" data-stroke-order="2511211">里</li>
-        <li class="glyph" data-stroke-order="2512121">⻊</li>
-        <li class="glyph" data-stroke-order="2512134">足</li>
-        <li class="glyph" data-stroke-order="2515215">邑</li>
-        <li class="glyph" data-stroke-order="3211511">𦥑</li>
-        <li class="glyph" data-stroke-order="3251113">身</li>
-        <li class="glyph" data-stroke-order="3332134">辵</li>
-        <li class="glyph" data-stroke-order="3431234">釆</li>
-        <li class="glyph" data-stroke-order="3434251">谷</li>
-        <li class="glyph" data-stroke-order="3443533">豸</li>
-        <li class="glyph" data-stroke-order="3525115">龟</li>
-        <li class="glyph" data-stroke-order="3535112">角</li>
-        <li class="glyph" data-stroke-order="3535112">⾓</li>
-        <li class="glyph" data-stroke-order="4111251">言</li>
-        <li class="glyph" data-stroke-order="4143112">辛</li>
-      </ul>
-
-      <h3>8</h3>
-
-      <ul>
-        <li class="glyph" data-stroke-order="11212511">青</li>
-        <li class="glyph" data-stroke-order="11212521">靑</li>
-        <li class="glyph" data-stroke-order="12111534">長</li>
-        <li class="glyph" data-stroke-order="12524444">雨</li>
-        <li class="glyph" data-stroke-order="12524444">⻗</li>
-        <li class="glyph" data-stroke-order="21112111">非</li>
-        <li class="glyph" data-stroke-order="21213452">齿</li>
-        <li class="glyph" data-stroke-order="21531535">虎</li>
-        <li class="glyph" data-stroke-order="25112511">門</li>
-        <li class="glyph" data-stroke-order="25125115">黾</li>
-        <li class="glyph" data-stroke-order="32411121">隹</li>
-        <li class="glyph" data-stroke-order="32515112">阜</li>
-        <li class="glyph" data-stroke-order="32515151">𨸏</li>
-        <li class="glyph" data-stroke-order="34112431">金</li>
-        <li class="glyph" data-stroke-order="34451154">飠</li>
-        <li class="glyph" data-stroke-order="35251211">鱼</li>
-        <li class="glyph" data-stroke-order="35253434">𧢲</li>
-        <li class="glyph" data-stroke-order="41343211">斉</li>
-        <li class="glyph" data-stroke-order="51124134">隶</li>
-      </ul>
-
-      <h3>9</h3>
-
-      <ul>
-        <li class="glyph" data-stroke-order="122125112">革</li>
-        <li class="glyph" data-stroke-order="132511134">頁</li>
-        <li class="glyph" data-stroke-order="132522111">面</li>
-        <li class="glyph" data-stroke-order="211121111">韭</li>
-        <li class="glyph" data-stroke-order="255452511">骨</li>
-        <li class="glyph" data-stroke-order="312342511">香</li>
-        <li class="glyph" data-stroke-order="325113554">鬼</li>
-        <li class="glyph" data-stroke-order="344511511">⻞</li>
-        <li class="glyph" data-stroke-order="344511534">食</li>
-        <li class="glyph" data-stroke-order="353251214">風</li>
-        <li class="glyph" data-stroke-order="414312511">音</li>
-        <li class="glyph" data-stroke-order="431325111">首</li>
-        <li class="glyph" data-stroke-order="521251152">韋</li>
-        <li class="glyph" data-stroke-order="534353432">飛</li>
-      </ul>
-
-      <h3>10</h3>
-
-      <ul>
-        <li class="glyph" data-stroke-order="1121211212">鬥</li>
-        <li class="glyph" data-stroke-order="1211154333">髟</li>
-        <li class="glyph" data-stroke-order="1211254444">馬</li>
-        <li class="glyph" data-stroke-order="1251254312">鬲</li>
-        <li class="glyph" data-stroke-order="3251213554">⿁</li>
-        <li class="glyph" data-stroke-order="3444445235">鬯</li>
-        <li class="glyph" data-stroke-order="4125125251">高</li>
-        <li class="glyph" data-stroke-order="4143125115">竜</li>
-        <li class="glyph" data-stroke-order="5551325111">⻡</li>
-      </ul>
-
-      <h3>11</h3>
-
-      <ul>
-        <li class="glyph" data-stroke-order="12212512134">黄</li>
-        <li class="glyph" data-stroke-order="12343434354">麥</li>
-        <li class="glyph" data-stroke-order="21253444441">鹵</li>
-        <li class="glyph" data-stroke-order="32511154444">鳥</li>
-        <li class="glyph" data-stroke-order="35251125115">亀</li>
-        <li class="glyph" data-stroke-order="35251214444">魚</li>
-        <li class="glyph" data-stroke-order="41312341234">麻</li>
-        <li class="glyph" data-stroke-order="41352211535">鹿</li>
-      </ul>
-
-      <h3>12</h3>
-
-      <ul>
-        <li class="glyph" data-stroke-order="122112512134">黃</li>
-        <li class="glyph" data-stroke-order="212143123452">歯</li>
-        <li class="glyph" data-stroke-order="224314325234">黹</li>
-        <li class="glyph" data-stroke-order="251115132125">鼎</li>
-        <li class="glyph" data-stroke-order="254312114444">黑</li>
-        <li class="glyph" data-stroke-order="312343424134">黍</li>
-      </ul>
-
-      <h3>13</h3>
-
-      <ul>
-        <li class="glyph" data-stroke-order="1212514311254">鼓</li>
-        <li class="glyph" data-stroke-order="2511251211511">黽</li>
-        <li class="glyph" data-stroke-order="3215115445445">鼠</li>
-      </ul>
-
-      <h3>14</h3>
-
-      <ul>
-        <li class="glyph" data-stroke-order="32511125121132">鼻</li>
-        <li class="glyph" data-stroke-order="41432533543211">齊</li>
-      </ul>
-
-      <h3>15</h3>
-
-      <ul>
-        <li class="glyph" data-stroke-order="212134341343452">齒</li>
-      </ul>
-
-      <h3>16</h3>
-
-      <ul>
-        <li class="glyph" data-stroke-order="4143125111515111">龍</li>
-      </ul>
-
-      <h3>17</h3>
-
-      <ul>
-        <li class="glyph" data-stroke-order="32511255115115341">龜</li>
-        <li class="glyph" data-stroke-order="34125125125125122">龠</li>
-      </ul>
+          <ul>
+            <li v-for="radical in item.radicals"
+                v-bind:data-stroke-order="radical.strokeOrder"
+                v-bind:data-clipboard-text="radical.glyph"
+                class="glyph">{{radical.glyph}}</li>
+          </ul>
+        </section>
+      </section>
 
       <h2 id="strokes">CJK Strokes</h2>
 
-      <ul>
-        <li class="glyph">㇀</li>
-        <li class="glyph">㇁</li>
-        <li class="glyph">㇂</li>
-        <li class="glyph">㇃</li>
-        <li class="glyph">㇄</li>
-        <li class="glyph">㇅</li>
-        <li class="glyph">㇆</li>
-        <li class="glyph">㇇</li>
-        <li class="glyph">㇈</li>
-        <li class="glyph">㇉</li>
-        <li class="glyph">㇊</li>
-        <li class="glyph">㇋</li>
-        <li class="glyph">㇌</li>
-        <li class="glyph">㇍</li>
-        <li class="glyph">㇎</li>
-        <li class="glyph">㇏</li>
-        <li class="glyph">㇐</li>
-        <li class="glyph">㇑</li>
-        <li class="glyph">㇒</li>
-        <li class="glyph">㇓</li>
-        <li class="glyph">㇔</li>
-        <li class="glyph">㇕</li>
-        <li class="glyph">㇖</li>
-        <li class="glyph">㇗</li>
-        <li class="glyph">㇘</li>
-        <li class="glyph">㇙</li>
-        <li class="glyph">㇚</li>
-        <li class="glyph">㇛</li>
-        <li class="glyph">㇜</li>
-        <li class="glyph">㇝</li>
-        <li class="glyph">㇞</li>
-        <li class="glyph">㇟</li>
-        <li class="glyph">㇠</li>
-        <li class="glyph">㇡</li>
-        <li class="glyph">㇢</li>
-        <li class="glyph">㇣</li>
+      <ul id="stroke-list">
+        <li v-for="stroke in strokeList"
+            v-bind:data-clipboard-text="stroke"
+            class="glyph">{{stroke}}</li>
       </ul>
     </article>
   </body>

@@ -75,7 +75,7 @@ canvas {
   border: 1px solid;
   display: block;
   height: 400px;
-  margin: $char-gap * 2 auto;
+  margin: $char-gap * 2 0;
   width: 400px;
 }
 
@@ -86,7 +86,7 @@ canvas {
   }
 }
 
-#idc {
+.idc {
   border: 1px solid;
   display: inline-block;
   font-size: 1.5rem;

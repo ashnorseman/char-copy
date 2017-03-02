@@ -16,6 +16,7 @@
   "devDependencies": {
     "@types/jasmine": "^2.5.43",
     "@types/node": "^7.0.5",
+    "@types/vue": "^2.0.0",
     "autoprefixer": "^6.7.5",
     "clean-webpack-plugin": "^0.1.15",
     "css-loader": "^0.26.1",
@@ -42,6 +43,7 @@
   },
   "dependencies": {
     "clipboard": "^1.6.0",
-    "desktop-css-starter": "^1.0.6"
+    "desktop-css-starter": "^1.0.6",
+    "vue": "^2.2.1"
   }
 }

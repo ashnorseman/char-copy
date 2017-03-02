@@ -62,13 +62,16 @@ module.exports = {
         options: {
           limit: 50000,
           mimetype: 'application/font-woff',
-          name: './fonts/[hash].[ext]',
+          name: './fonts/[hash].[ext]'
         }
       }
     ]
   },
 
   resolve: {
-    extensions: ['.ts', '.js']
+    extensions: ['.ts', '.js'],
+    alias: {
+      vue$: 'vue/dist/vue.esm.js'
+    }
   }
 };
